@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "430fa51d-087f-470c-8f6b-4cdf83ea8cb7",
+		"name": "task-api-azure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/tasks",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"test\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/tasks",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"summary\": \"Done with style. On laptop. It clould be bigger on desktop. Mobile not tested.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/tasks/64c2b25aceaf411bdb1f37f8",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"64c2b25aceaf411bdb1f37f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"summary\": \"Try catch handled browser errors. Test is possible in node and usefll. There was a time i thouth it's useless, but no.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/tasks/64c174bce3374bac88d08388",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"64c174bce3374bac88d08388"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"atari.monk1@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"maxRecords\": 9966\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/users/64c54794a7a9c8eeb7aec4cd",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"64c54794a7a9c8eeb7aec4cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"summary\": \"Try catch handled browser errors. Test is possible in node and usefll. There was a time i thouth it's useless, but no.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://atari-monk-task-api.azurewebsites.net/api/v1/users/64c54794a7a9c8eeb7aec4cd",
+							"protocol": "https",
+							"host": [
+								"atari-monk-task-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"64c54794a7a9c8eeb7aec4cd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
