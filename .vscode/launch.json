@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Mocha Tests",
+      "program": "${workspaceFolder}/web-api.tests/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--require",
+        "ts-node/register",
+        "${workspaceFolder}/web-api.tests/src/user/user.test.ts"
+      ],
+      "cwd": "${workspaceFolder}/web-api.tests",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
