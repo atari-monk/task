@@ -22,7 +22,7 @@ describe('Task web api User tests', () => {
 
     userId = response.data._id as string
     tester.routing = getRoutes(baseUrl, userId, email)
-    
+
     expect(response.status).to.equal(201)
     expect(response.data).to.include(postData)
   })
@@ -43,6 +43,32 @@ describe('Task web api User tests', () => {
 
     const adminUser = response.data.find((u: any) => u.email === email)
     expect(adminUser).to.deep.equal(expectedData)
+  })
+
+  it('should test PATCH request successfully', async () => {
+    const key = 'updateUser'
+
+    const patchData = {
+      _id: userId,
+      email: 'test9.test9@gmail.com',
+      displayName: 'test999test',
+      maxRecords: 10,
+    }
+
+    const response = await tester.patch(key, patchData)
+
+    expect(response.status).to.equal(200)
+    expect(response.data).to.include(patchData)
+  })
+
+  it('should test GET by email request successfully', async () => {
+    tester.routing = getRoutes(baseUrl, userId, 'test9.test9@gmail.com')
+    const key = 'getUserIdByEmail'
+
+    const response = await tester.get(key)
+
+    expect(response.status).to.equal(200)
+    expect(response.data.userId).to.equal(userId)
   })
 
   it('should test DELETE request successfully', async () => {
