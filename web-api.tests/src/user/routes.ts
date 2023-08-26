@@ -8,25 +8,25 @@ export const getRoutes = (
   return {
     baseUrl: baseUrl,
     endpoints: {
-      getUsers: {
-        method: HttpMethod.GET,
-        endpoint: 'users',
-      },
       createUser: {
         method: HttpMethod.POST,
+        endpoint: 'users',
+      },
+      getUsers: {
+        method: HttpMethod.GET,
         endpoint: 'users',
       },
       updateUser: {
         method: HttpMethod.PATCH,
         endpoint: `users/${id}`,
       },
-      deleteUser: {
-        method: HttpMethod.DELETE,
-        endpoint: `users/${id}`,
-      },
       getUserIdByEmail: {
         method: HttpMethod.GET,
         endpoint: `users/email/${email}`,
+      },
+      deleteUser: {
+        method: HttpMethod.DELETE,
+        endpoint: `users/${id}`,
       },
     },
   }
