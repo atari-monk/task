@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "tsc",
-    "test": "npx mocha ./build/*test.js",
+    "test": "npx mocha --recursive ./build",
     "debug": "ndb mocha --require ts-node/register ./src/user/user.test.ts"
   },
   "keywords": [],
