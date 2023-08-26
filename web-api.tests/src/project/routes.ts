@@ -8,15 +8,15 @@ export const getRoutes = (
   return {
     baseUrl: baseUrl,
     endpoints: {
-      createProject: {
+      createUserProject: {
         method: HttpMethod.POST,
         endpoint: 'projects/create',
       },
-      getProjectById: {
+      getUserProjectById: {
         method: HttpMethod.GET,
         endpoint: `projects/${projectId}?userId=${userId}`,
       },
-      getProjects: {
+      getUserProjects: {
         method: HttpMethod.GET,
         endpoint: `projects/user?userId=${userId}`,
       },
