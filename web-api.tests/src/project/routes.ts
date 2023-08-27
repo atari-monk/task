@@ -1,13 +1,17 @@
 import { HttpMethod, IRouting } from 'atari-monk-api-tester-api'
 
 export const getRoutes = (
-  baseUrl: string,
+  url: string,
   userId?: string,
   projectId?: string
 ): IRouting => {
   return {
-    baseUrl: baseUrl,
+    baseUrl: url,
     endpoints: {
+      createUser: {
+        method: HttpMethod.POST,
+        endpoint: 'users',
+      },
       createUserProject: {
         method: HttpMethod.POST,
         endpoint: 'projects/create',
@@ -27,6 +31,10 @@ export const getRoutes = (
       updateProject: {
         method: HttpMethod.PATCH,
         endpoint: `projects/${projectId}`,
+      },
+      deleteUser: {
+        method: HttpMethod.DELETE,
+        endpoint: `users/${userId}`,
       },
       deleteProject: {
         method: HttpMethod.DELETE,
