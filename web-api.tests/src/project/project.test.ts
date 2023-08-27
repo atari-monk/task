@@ -15,6 +15,7 @@ describe('Test Project endpoints', () => {
     name: 'test-project',
     description: 'test-description',
     userId: '',
+    isVisible: true,
   }
   const tester = new ApiTester()
   tester.routing = getRoutes(url)
@@ -44,6 +45,15 @@ describe('Test Project endpoints', () => {
     } catch (error) {
       console.log(error)
     }
+  })
+
+  it('should test GET request successfully', async () => {
+    const key = 'getUserProjectById'
+
+    const response = await tester.get(key)
+
+    expect(response.status).to.equal(200)
+    expect(response.data).to.include(project)
   })
 
   it('should test DELETE request successfully', async () => {
