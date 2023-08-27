@@ -17,6 +17,11 @@ describe('Test Project endpoints', () => {
     userId: '',
     isVisible: true,
   }
+  const projectPatch = {
+    ...project,
+    name: 'test-project-patch',
+    description: 'test-description-patch',
+  }
   const tester = new ApiTester()
   tester.routing = getRoutes(url)
 
@@ -27,6 +32,7 @@ describe('Test Project endpoints', () => {
 
     user._id = response.data._id as string
     project.userId = user._id
+    projectPatch.userId = user._id
     tester.routing = getRoutes(url, user._id)
 
     expect(response.status).to.equal(201)
@@ -38,6 +44,7 @@ describe('Test Project endpoints', () => {
       const response = await tester.post('createUserProject', project)
 
       project._id = response.data._id as string
+      projectPatch._id = project._id
       tester.routing = getRoutes(url, user._id, project._id)
 
       expect(response.status).to.equal(201)
@@ -78,6 +85,15 @@ describe('Test Project endpoints', () => {
       return p._id === project._id
     })
     expect(projectDb).to.include(project)
+  })
+
+  it('should test PATCH request successfully', async () => {
+    const key = 'updateProject'
+
+    const response = await tester.patch(key, projectPatch)
+
+    expect(response.status).to.equal(200)
+    expect(response.data).to.include(projectPatch)
   })
 
   it('should test DELETE request successfully', async () => {
