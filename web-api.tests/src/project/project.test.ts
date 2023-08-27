@@ -56,6 +56,18 @@ describe('Test Project endpoints', () => {
     expect(response.data).to.include(project)
   })
 
+  it('should test GET request successfully', async () => {
+    const key = 'getUserProjects'
+
+    const response = await tester.get(key)
+
+    expect(response.status).to.equal(200)
+    const projectDb = response.data.find((p: any) => {
+      return p._id === project._id
+    })
+    expect(projectDb).to.include(project)
+  })
+
   it('should test DELETE request successfully', async () => {
     const key = 'deleteUser'
 
