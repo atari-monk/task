@@ -9,6 +9,7 @@ import IProject from '../Project/IProject'
 import TaskPopup from './TaskPopup'
 import Modal from '../components/ModalOverlay'
 import IAppConfig from '../config/IAppConfig'
+import { extractChars } from '../utils'
 
 const TaskList: React.FC<ITaskListProps> = ({ config }) => {
   const [tasks, setTasks] = useState<ITask[]>([])
@@ -92,6 +93,33 @@ const TaskList: React.FC<ITaskListProps> = ({ config }) => {
     localStorage.setItem('selectedProjectId', projectId)
   }
 
+  const getFrom = (
+    localTimestamp: string,
+    finishLocalTimestamp: string | undefined
+  ): string => {
+    if (!finishLocalTimestamp)
+      return `${extractChars(localTimestamp, 5, false)} ${extractChars(
+        localTimestamp,
+        10
+      )}`
+    const startDate = extractChars(localTimestamp, 10)
+    const endDate = extractChars(finishLocalTimestamp, 10)
+    return startDate === endDate
+      ? extractChars(localTimestamp, 5, false)
+      : `${extractChars(localTimestamp, 5, false)} ${extractChars(
+          localTimestamp,
+          10
+        )}`
+  }
+
+  const getTo = (finishLocalTimestamp: string | undefined): string => {
+    if (!finishLocalTimestamp) return ''
+    return `${extractChars(finishLocalTimestamp, 5, false)} ${extractChars(
+      finishLocalTimestamp,
+      10
+    )}`
+  }
+
   return (
     <>
       <ProjectSelection
@@ -111,15 +139,23 @@ const TaskList: React.FC<ITaskListProps> = ({ config }) => {
       <StyledTaskList>
         {tasks.map((task) => (
           <div key={task._id}>
-            <p>Created At: {task.localTimestamp}</p>
-            {!task.finishedAt && (
-              <>
-                <button onClick={() => finishTask(task._id)}>
-                  Finish Task
-                </button>
-              </>
-            )}
-            {task.finishedAt && <p>Finished At: {task.finishLocalTimestamp}</p>}
+            <p>
+              {`From ${getFrom(
+                task.localTimestamp,
+                task.finishLocalTimestamp
+              )}`}
+              {task.finishedAt && ` To ${getTo(task.finishLocalTimestamp)}`}
+              {!task.finishedAt && (
+                <>
+                  <button
+                    onClick={() => finishTask(task._id)}
+                    style={{ marginLeft: '10px' }}
+                  >
+                    Finish Task
+                  </button>
+                </>
+              )}
+            </p>
             <p>Task: {task.description}</p>
             {task.summary && <p>Summary: {task.summary}</p>}
           </div>
