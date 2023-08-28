@@ -3,8 +3,8 @@ import { HttpMethod, IRouting } from 'atari-monk-api-tester-api'
 export const getRoutes = (
   url: string,
   userId?: string,
-  taskId?: string,
-  projectId?: string
+  projectId?: string,
+  taskId?: string
 ): IRouting => {
   return {
     baseUrl: url,
