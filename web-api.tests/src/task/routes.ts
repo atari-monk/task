@@ -29,13 +29,13 @@ export const getRoutes = (
         method: HttpMethod.GET,
         endpoint: `tasks/user/${userId}/${projectId}`,
       },
-      updateTask: {
-        method: HttpMethod.PATCH,
-        endpoint: `tasks/${taskId}`,
-      },
       getAllTasks: {
         method: HttpMethod.GET,
         endpoint: 'tasks/all',
+      },
+      updateTask: {
+        method: HttpMethod.PATCH,
+        endpoint: `tasks/${taskId}`,
       },
       finishTask: {
         method: HttpMethod.PATCH,
