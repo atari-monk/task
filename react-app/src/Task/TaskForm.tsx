@@ -44,17 +44,17 @@ const TaskForm: React.FC<ITaskFormProps> = ({ config, onTaskAdded }) => {
 
   return (
     <StyledTaskForm onSubmit={handleSubmit}>
+      <ProjectSelection
+        projects={projects}
+        selectedProjectId={selectedProjectId}
+        onChange={setSelectedProjectId}
+      />
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
         placeholder="Enter task description"
-      />
-      <ProjectSelection
-        projects={projects}
-        selectedProjectId={selectedProjectId}
-        onChange={setSelectedProjectId}
       />
       <button type="submit">Add Task</button>
     </StyledTaskForm>

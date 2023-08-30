@@ -25,6 +25,7 @@ export const appContainer = css`
 
 export const taskForm = css`
   display: flex;
+  flex-direction: column;
   align-items: center;
 
   input {
@@ -43,7 +44,7 @@ export const taskForm = css`
     border: none;
     cursor: pointer;
   }
-`;
+`
 
 export const taskList = css`
   margin-top: 20px;
