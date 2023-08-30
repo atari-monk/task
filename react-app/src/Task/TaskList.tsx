@@ -84,8 +84,10 @@ const TaskList: React.FC<ITaskListProps> = ({ config, onTaskAdded }) => {
     }
   }
 
-  const handlePopupFinish = () => {
+  const handlePopupFinish = async () => {
     setShowPopup(false)
+
+    await fetchTasks(userId, selectedProjectId, config, setTasks)
   }
 
   const handleProjectChange = (projectId: string) => {
