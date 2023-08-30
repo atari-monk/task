@@ -6,7 +6,7 @@ import ITaskFormProps from './ITaskFormProps'
 import IProject from '../Project/IProject'
 import ProjectSelection from '../Project/ProjectSelection'
 
-const TaskForm: React.FC<ITaskFormProps> = ({ config }) => {
+const TaskForm: React.FC<ITaskFormProps> = ({ config, onTaskAdded }) => {
   const [description, setDescription] = useState('')
   const [projects, setProjects] = useState<IProject[]>([])
   const [selectedProjectId, setSelectedProjectId] = useState('')
@@ -36,6 +36,7 @@ const TaskForm: React.FC<ITaskFormProps> = ({ config }) => {
       })
       setDescription('')
       setSelectedProjectId('')
+      onTaskAdded()
     } catch (error) {
       console.error('Failed to create task:', error)
     }

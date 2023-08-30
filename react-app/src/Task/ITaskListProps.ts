@@ -1,5 +1,6 @@
-import IAppConfig from '../config/IAppConfig';
+import IAppConfig from '../config/IAppConfig'
 
 export default interface ITaskListProps {
-  config: IAppConfig;
+  config: IAppConfig
+  onTaskAdded: () => void
 }

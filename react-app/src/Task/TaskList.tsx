@@ -11,7 +11,7 @@ import Modal from '../components/ModalOverlay'
 import IAppConfig from '../config/IAppConfig'
 import { extractChars } from '../utils'
 
-const TaskList: React.FC<ITaskListProps> = ({ config }) => {
+const TaskList: React.FC<ITaskListProps> = ({ config, onTaskAdded }) => {
   const [tasks, setTasks] = useState<ITask[]>([])
   const { userId } = useContext(AuthContext)
   const [projects, setProjects] = useState<IProject[]>([])
@@ -65,7 +65,7 @@ const TaskList: React.FC<ITaskListProps> = ({ config }) => {
   useEffect(() => {
     console.log('Selected Project ID:', selectedProjectId)
     fetchProjects(userId, config, setProjects)
-  }, [config, selectedProjectId, userId])
+  }, [config, selectedProjectId, userId, onTaskAdded])
 
   useEffect(() => {
     if (selectedProjectId) {
