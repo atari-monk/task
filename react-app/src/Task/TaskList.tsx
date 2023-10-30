@@ -3,13 +3,12 @@ import axios from 'axios'
 import { StyledTaskList } from '../styles'
 import ITask from './ITask'
 import ITaskListProps from './ITaskListProps'
-import { AuthContext } from '../Auth/AuthProvider'
 import ProjectSelection from '../Project/ProjectSelection'
 import IProject from '../Project/IProject'
 import TaskPopup from './TaskPopup'
 import Modal from '../components/ModalOverlay'
-import IAppConfig from '../config/IAppConfig'
 import { extractChars } from '../utils'
+import { AuthContext, IAppConfig } from 'auth-lib'
 
 const TaskList: React.FC<ITaskListProps> = ({ config, onTaskAdded }) => {
   const [tasks, setTasks] = useState<ITask[]>([])

@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../Auth/AuthProvider";
 import IProject from "./IProject";
 import IProjectListProps from "./IProjectListProps";
 import { StyledProjectList } from "../styles";
+import { AuthContext } from "auth-lib";
 
 const ProjectList: React.FC<IProjectListProps> = ({ config }) => {
   const [projects, setProjects] = useState<IProject[]>([]);

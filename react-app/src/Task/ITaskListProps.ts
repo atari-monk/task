@@ -1,4 +1,4 @@
-import IAppConfig from '../config/IAppConfig'
+import { IAppConfig } from "auth-lib"
 
 export default interface ITaskListProps {
   config: IAppConfig

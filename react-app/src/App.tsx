@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { StyledAppContainer } from './styles'
-import { AuthContext } from './Auth/AuthProvider'
-import AppMenu from './components/AppMenu'
 import UIToggle from './Layout/UIToggle'
 import TaskForm from './Task/TaskForm'
 import TaskList from './Task/TaskList'
-import appConfig from './config/appConfig'
 import ProjectForm from './Project/ProjectForm'
 import ProjectList from './Project/ProjectList'
+import { AuthContext, appConfig } from 'auth-lib'
+import axios from 'axios'
+import { AppMenu } from 'ui-lib'
 
 const App: React.FC = () => {
   const { isLoggedIn } = useContext(AuthContext)
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   return (
     <StyledAppContainer className={`App`}>
-      <AppMenu />
+      <AppMenu config={appConfig} axiosInstance={axios} />
       {isLoggedIn ? (
         <>
           <UIToggle

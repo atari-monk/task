@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import { StyledTaskForm } from '../styles'
-import { AuthContext } from '../Auth/AuthProvider'
 import ITaskFormProps from './ITaskFormProps'
 import IProject from '../Project/IProject'
 import ProjectSelection from '../Project/ProjectSelection'
+import { AuthContext } from 'auth-lib'
 
 const TaskForm: React.FC<ITaskFormProps> = ({ config, onTaskAdded }) => {
   const [description, setDescription] = useState('')

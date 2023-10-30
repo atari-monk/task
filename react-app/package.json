@@ -1,5 +1,5 @@
 {
-  "name": "3-task-app",
+  "name": "react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "@types/node": "^16.18.39",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "auth-lib": "file:auth-lib-1.0.0.tgz",
     "axios": "^1.4.0",
     "firebase": "^10.1.0",
     "moment-timezone": "^0.5.43",
@@ -20,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
+    "ui-lib": "file:ui-lib-1.0.0.tgz",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
